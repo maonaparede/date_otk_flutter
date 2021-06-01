@@ -7,10 +7,13 @@ import 'package:date_otk_flutter/Components/text_box.dart';
 import 'package:date_otk_flutter/components/button_box.dart';
 import 'package:date_otk_flutter/models/button_options.dart';
 import 'package:date_otk_flutter/models/dialog_name.dart';
+import 'package:date_otk_flutter/models/id_file.dart';
+import 'package:date_otk_flutter/service/json_handler/json_reader.dart';
 import 'package:date_otk_flutter/test/general_controller_test.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 
 
@@ -30,13 +33,26 @@ class Game extends State<GamePage> {
   //Ideia - guardar id como chave primaria, msm repetindo nome de arquivo
   //só q dai vai ter q fazer um "interpretador" Json q pegue só o trrecho do id no
   //arquivo - talvez aqls funcoes do javascript (.map .reduce) sejam úteis
+  //todo tirar td de dependencia do android manifest e acharr um plugin flutter pra aplicar isso
 
   @override
   Widget build(BuildContext context) {
-    GeneralControllerTest(context).start();
+    //GeneralControllerTest(context).start();
+    loadTest();
     //ControllerGameTest().start();
     //ModelViewTest().start();
-    return _buildGame();
+    return Container(); //_buildGame();
+  }
+
+  loadTest() async{
+    MapEntry<String, dynamic> response =
+    await JsonReader().getModelById(IdFile(id: "ch1", file: "rota1"));
+
+
+
+    print(response.key);
+    print(response.value);
+    //print(a);
   }
 
   Widget _buildGame(){
@@ -106,12 +122,12 @@ class Game extends State<GamePage> {
   }
 
   _buildButton(ButtonOptions button){
-    return ButtomBox(data: button, onPressed: () {_buttonPress(button.idResponse);});
+    return ButtomBox(data: button, onPressed: () {_buttonPress(button.idFile);});
   }
 
-  _buttonPress(String id){
-    log("id: " + id);
-    GameModelView(context).buttonPress(id);
+  _buttonPress(IdFile idFile){
+    log("id: " + idFile.id);
+    GameModelView(context).buttonPress(idFile);
   }
 
 

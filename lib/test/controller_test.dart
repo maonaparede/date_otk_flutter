@@ -1,6 +1,7 @@
 import 'package:date_otk_flutter/models/button_options.dart';
 import 'package:date_otk_flutter/models/chat_model.dart';
 import 'package:date_otk_flutter/models/dialog_name.dart';
+import 'package:date_otk_flutter/models/id_file.dart';
 import 'package:date_otk_flutter/models/list_button_options.dart';
 import 'package:date_otk_flutter/pages/standart_chat/game_controller.dart';
 
@@ -22,9 +23,9 @@ class ControllerGameTest {
       " esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?";
 
   List<ButtonOptions> options = [
-    ButtonOptions(text: "salve", idResponse: "1"),
-    ButtonOptions(text: "rapaziada", idResponse: "1"),
-    ButtonOptions(text: "Braba", idResponse: "1")
+    ButtonOptions(idFile: IdFile(file: "rota1" , id:"ch1"), text: "salve"),
+    ButtonOptions(idFile: IdFile(file: "rota1" , id:"ch1"), text: "rapaziada"),
+    ButtonOptions(idFile: IdFile(file: "rota1" , id:"ch1"), text: "Braba")
   ];
 
   Future start() async {
@@ -41,7 +42,8 @@ class ControllerGameTest {
   }
 
   ChatModel returnModel(){
-    return ChatModel(DialogName("... rgrgrggr", text), "assets/images/pp-removebg-preview.png", "assets/images/wlop.jpg");
+    return ChatModel(IdFile(file: "rota1" , id:"ch1"),
+        DialogName("... rgrgrggr", text), "assets/images/pp-removebg-preview.png", "assets/images/wlop.jpg");
   }
   
   ListButtonOptions returnButton(){

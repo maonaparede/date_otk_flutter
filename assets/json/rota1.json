@@ -1,0 +1,34 @@
+{
+  "model": [
+
+
+    {
+      "id": "ch1",
+      "chat": [
+        {
+          "idTo": "bt1",
+          "file": "rota1",
+          "character": "saber.png",
+          "background": "background2.jpg",
+          "name": "Saber ",
+          "said" : "Oi tudo bem?"
+        }
+      ]
+    },
+    {
+      "id": "bt1",
+      "button": [
+        {
+          "name": "Eae",
+          "idTo": "ch2"
+        },
+        {
+          "name": "(Ignorar)",
+          "idTo": "ch3"
+        }
+      ]
+    }
+
+
+  ]
+}

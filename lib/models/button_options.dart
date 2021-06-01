@@ -1,9 +1,9 @@
-
-import 'package:flutter/material.dart';
+import 'package:date_otk_flutter/models/id_file.dart';
+import 'package:flutter/widgets.dart';
 
 class ButtonOptions{
+  IdFile idFile;
   String text;
-  String idResponse;
 
-  ButtonOptions({@required this.text, @required this.idResponse});
+  ButtonOptions({@required this.idFile, @required this.text});
 }

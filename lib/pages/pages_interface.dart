@@ -2,6 +2,7 @@
 
 import 'package:date_otk_flutter/general_model_view.dart';
 import 'package:date_otk_flutter/models/button_options.dart';
+import 'package:date_otk_flutter/models/id_file.dart';
 import 'package:date_otk_flutter/models/list_button_options.dart';
 
 abstract class PagesInterface{
@@ -13,8 +14,8 @@ abstract class PagesInterface{
 
   updateModel(dynamic model);
 
-  buttonPress(String id) async{
-    await GeneralModelView().nextAction(id , modelView, model);
+  buttonPress(IdFile idFile) async{
+    await GeneralModelView().nextAction(idFile , modelView, model);
     await removeButtons();
     return;
   }
