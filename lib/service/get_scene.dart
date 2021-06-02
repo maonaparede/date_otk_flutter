@@ -1,5 +1,5 @@
 
-import 'package:date_otk_flutter/create_models.dart';
+import 'package:date_otk_flutter/service/create_models.dart';
 import 'package:date_otk_flutter/models/id_file.dart';
 import 'package:date_otk_flutter/service/json_handler/json_reader.dart';
 
@@ -8,13 +8,12 @@ class GetScene{
   //retorna um model
   getSceneById(IdFile idFile) async{
     MapEntry<String, dynamic> response = await JsonReader().getModelById(idFile);
-    dynamic scene = await returnModel(response);
+    dynamic scene = await _returnModel(response);
 
     return scene;
   }
 
-  returnModel(MapEntry<String, dynamic> response) async{
-    //todo vai ter q retornar o model que representa a cena
+  _returnModel(MapEntry<String, dynamic> response) async{
     CreateModels createModels = CreateModels();
 
     dynamic model = null;
@@ -33,7 +32,6 @@ class GetScene{
 
     return model!=null? model :
     Future.error("getScene error, model: "+ model.toString());
-
   }
 
 }

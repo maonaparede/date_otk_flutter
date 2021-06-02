@@ -1,16 +1,10 @@
 
-import 'dart:developer';
 
-import 'package:date_otk_flutter/main.dart';
-import 'package:date_otk_flutter/models/chat_model.dart';
-import 'package:date_otk_flutter/models/name_dialog.dart';
 import 'package:date_otk_flutter/models/id_file.dart';
 import 'package:date_otk_flutter/models/list_button_options.dart';
-import 'package:date_otk_flutter/pages/standart_chat/game.dart';
 import 'package:date_otk_flutter/service/database/db_internal_interface.dart';
 import 'package:date_otk_flutter/service/database/sql_lite.dart';
 import 'package:date_otk_flutter/service/get_scene.dart';
-import 'package:flutter/material.dart';
 
 
 class GeneralModelView{
@@ -19,9 +13,9 @@ class GeneralModelView{
 
 
   nextAction(IdFile idFile , dynamic modelView, dynamic model) async {
-    dynamic scene;
+    dynamic scene = await GetScene().getSceneById(idFile);
 
-    if (scene != null) {
+    if (scene != null){
       //Se precisar add outra coisa "multi-cena" é só colocar aqui embaixo
       if (scene.runtimeType != ListButtonOptions) {
         if (model.runtimeType == scene.runtimeType) {
@@ -37,6 +31,7 @@ class GeneralModelView{
       }
     }
 
+    return;
   }
 
 
@@ -55,10 +50,13 @@ class GeneralModelView{
       }
       await updateScene(scene, modelView);
     }
+
+    return;
   }
 
   updateScene(Object scene, dynamic modelView) async{
           await modelView.updateModel(scene);
+          return;
   }
 
 
