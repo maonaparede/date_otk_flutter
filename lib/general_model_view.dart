@@ -3,7 +3,7 @@ import 'dart:developer';
 
 import 'package:date_otk_flutter/main.dart';
 import 'package:date_otk_flutter/models/chat_model.dart';
-import 'package:date_otk_flutter/models/dialog_name.dart';
+import 'package:date_otk_flutter/models/name_dialog.dart';
 import 'package:date_otk_flutter/models/id_file.dart';
 import 'package:date_otk_flutter/models/list_button_options.dart';
 import 'package:date_otk_flutter/pages/standart_chat/game.dart';

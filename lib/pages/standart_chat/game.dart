@@ -6,7 +6,7 @@ import 'dart:ui' as ui;
 import 'package:date_otk_flutter/Components/text_box.dart';
 import 'package:date_otk_flutter/components/button_box.dart';
 import 'package:date_otk_flutter/models/button_options.dart';
-import 'package:date_otk_flutter/models/dialog_name.dart';
+import 'package:date_otk_flutter/models/name_dialog.dart';
 import 'package:date_otk_flutter/models/id_file.dart';
 import 'package:date_otk_flutter/service/json_handler/json_reader.dart';
 import 'package:date_otk_flutter/test/general_controller_test.dart';
@@ -38,15 +38,15 @@ class Game extends State<GamePage> {
   @override
   Widget build(BuildContext context) {
     //GeneralControllerTest(context).start();
-    loadTest();
+    //loadTest();
     //ControllerGameTest().start();
     //ModelViewTest().start();
-    return Container(); //_buildGame();
+    return _buildGame();
   }
 
   loadTest() async{
     MapEntry<String, dynamic> response =
-    await JsonReader().getModelById(IdFile(id: "ch1", file: "rota1"));
+    await JsonReader().getModelById(IdFile(id: "bt1", file: "rota2"));
 
 
 
@@ -107,7 +107,7 @@ class Game extends State<GamePage> {
           //Texto dialogo
           Align(
             alignment: Alignment.bottomCenter,
-            child: ValueListenableBuilder<DialogName>(
+            child: ValueListenableBuilder<NameDialog>(
               valueListenable: GameController.instance.dialogName,
               builder: (context , value, _)
               {

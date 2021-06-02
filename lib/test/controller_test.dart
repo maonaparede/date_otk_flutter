@@ -1,6 +1,6 @@
 import 'package:date_otk_flutter/models/button_options.dart';
 import 'package:date_otk_flutter/models/chat_model.dart';
-import 'package:date_otk_flutter/models/dialog_name.dart';
+import 'package:date_otk_flutter/models/name_dialog.dart';
 import 'package:date_otk_flutter/models/id_file.dart';
 import 'package:date_otk_flutter/models/list_button_options.dart';
 import 'package:date_otk_flutter/pages/standart_chat/game_controller.dart';
@@ -34,7 +34,7 @@ class ControllerGameTest {
    // await Future.delayed(Duration(seconds: 2));
    // await GameController.instance.setCharacter("assets/images/wlop.jpg");
     //await Future.delayed(Duration(seconds: 1));
-    await GameController.instance.setDialogName(DialogName("... rgrgrggr", text));
+    await GameController.instance.setDialogName(NameDialog("... rgrgrggr", text));
     //await Future.delayed(Duration(seconds: 1));
     await GameController.instance.setButtons(options);
     //await Future.delayed(Duration(seconds: 2));
@@ -43,7 +43,7 @@ class ControllerGameTest {
 
   ChatModel returnModel(){
     return ChatModel(IdFile(file: "rota1" , id:"ch1"),
-        DialogName("... rgrgrggr", text), "assets/images/pp-removebg-preview.png", "assets/images/wlop.jpg");
+        NameDialog("... rgrgrggr", text), "assets/images/pp-removebg-preview.png", "assets/images/wlop.jpg");
   }
   
   ListButtonOptions returnButton(){

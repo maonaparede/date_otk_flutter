@@ -1,7 +1,6 @@
 
+import 'package:date_otk_flutter/create_models.dart';
 import 'package:date_otk_flutter/models/id_file.dart';
-import 'package:date_otk_flutter/service/database/db_internal_interface.dart';
-import 'package:date_otk_flutter/service/database/sql_lite.dart';
 import 'package:date_otk_flutter/service/json_handler/json_reader.dart';
 
 class GetScene{
@@ -14,14 +13,27 @@ class GetScene{
     return scene;
   }
 
-  returnModel(MapEntry<String, dynamic> response) {
-    //todo vai ter q retornar o model que repreenta a cena
+  returnModel(MapEntry<String, dynamic> response) async{
+    //todo vai ter q retornar o model que representa a cena
+    CreateModels createModels = CreateModels();
 
-    //pega nome do elemento especifico, chat, buttons
-    //print(response.entries.elementAt(1).key);
+    dynamic model = null;
 
-    //pega valor do elemento especifico, chat, buttons
-    //print(response.entries.elementAt(1).value);
+    switch(response.key){
+      case "chat":
+        model = await createModels.chatModel(response.value[0]);
+        break;
+      case "button":
+        model = await createModels.buttonModel(response.value);
+        break;
+
+      default:
+        break;
+    }
+
+    return model!=null? model :
+    Future.error("getScene error, model: "+ model.toString());
+
   }
 
 }

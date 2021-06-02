@@ -5,13 +5,13 @@
       "id": "bt1",
       "button": [
         {
-          "name": "Eae",
-          "idTo": "ch2",
+          "text": "Eae",
+          "id": "ch2",
           "file": "rota2"
         },
         {
-          "name": "(Ignorar)",
-          "idTo": "3",
+          "text": "(Ignorar)",
+          "id": "3",
           "file": "rota2"
         }
       ]
@@ -21,7 +21,7 @@
       "id": "ch2",
       "chat": [
         {
-          "idTo": "ch1",
+          "id": "ch1",
           "file": "rota2",
           "character": "saber.png",
           "background": "background2.jpg",
@@ -35,7 +35,7 @@
       "id": "ch3",
       "chat": [
         {
-          "idTo": "ch1",
+          "id": "ch1",
           "file": "rota2",
           "character": "saber.png",
           "background": "background2.jpg",

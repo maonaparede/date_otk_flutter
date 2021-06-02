@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:date_otk_flutter/models/dialog_name.dart';
+import 'package:date_otk_flutter/models/name_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:bordered_text/bordered_text.dart';
@@ -8,7 +8,7 @@ import 'package:bordered_text/bordered_text.dart';
 class TextBoxName extends StatefulWidget {
   TextBoxName({@required this.data});
 
-  final DialogName data;
+  final NameDialog data;
 
   @override
   _TextBoxNameState createState() => _TextBoxNameState();
