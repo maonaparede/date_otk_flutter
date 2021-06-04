@@ -19,17 +19,15 @@ import 'package:flutter/services.dart';
 
 import '../../test/controller_test.dart';
 import '../../main.dart';
-import 'game_controller.dart';
-import 'game_modelview.dart';
+import 'chat_controller.dart';
+import 'chat_modelview.dart';
 
-class Game extends State<GamePage> {
+class Chat extends State<ChatPage> {
 
 
   //todo Fade nos widgets aparecendo e desaparecendo, provavel uso de states
   //todo botao descer texto
   //todo BD interno -
-  // todo - Ele vai pegar todos os Json, guardar o nome do arquivo e o(s) id(s)
-  //todo - Pra quando precisar de algum id especifico saber onde pegar o arquivo
   //Ideia - guardar id como chave primaria, msm repetindo nome de arquivo
   //só q dai vai ter q fazer um "interpretador" Json q pegue só o trrecho do id no
   //arquivo - talvez aqls funcoes do javascript (.map .reduce) sejam úteis
@@ -38,20 +36,14 @@ class Game extends State<GamePage> {
   @override
   Widget build(BuildContext context) {
     //GeneralControllerTest(context).start();
-    //loadTest();
+    loadTest();
     //ControllerGameTest().start();
     //ModelViewTest().start();
     return _buildGame();
   }
 
   loadTest() async{
-    MapEntry<String, dynamic> response =
-    await JsonReader().getModelById(IdFile(id: "bt1", file: "rota2"));
-
-
-
-    print(response.key);
-    print(response.value);
+    //_buttonPress(IdFile(id:"ch1" , file: "rota1"));
     //print(a);
   }
 
@@ -63,7 +55,7 @@ class Game extends State<GamePage> {
 
           //Background
           ValueListenableBuilder<String>(
-            valueListenable: GameController.instance.background,
+            valueListenable: ChatController.instance.background,
             builder: (context , value, _)
             {
               return Image(image: AssetImage(value), fit: BoxFit.cover);
@@ -79,7 +71,7 @@ class Game extends State<GamePage> {
                 height: MediaQuery.of(context).size.height * 0.7,
                 child:
                  ValueListenableBuilder<String>(
-                    valueListenable: GameController.instance.character,
+                    valueListenable: ChatController.instance.character,
                     builder: (context , value, _)
                     {
                       return Image(image: AssetImage(value), fit: BoxFit.fill);
@@ -93,7 +85,7 @@ class Game extends State<GamePage> {
             alignment: Alignment.center,
             child:
               ValueListenableBuilder<List<ButtonOptions>>(
-              valueListenable: GameController.instance.buttons,
+              valueListenable: ChatController.instance.buttons,
                   builder: ( context , value, _ )
               {
                 return ListView.builder(
@@ -108,7 +100,7 @@ class Game extends State<GamePage> {
           Align(
             alignment: Alignment.bottomCenter,
             child: ValueListenableBuilder<NameDialog>(
-              valueListenable: GameController.instance.dialogName,
+              valueListenable: ChatController.instance.dialogName,
               builder: (context , value, _)
               {
                 return TextBoxName(data: value);
@@ -127,7 +119,7 @@ class Game extends State<GamePage> {
 
   _buttonPress(IdFile idFile){
     log("id: " + idFile.id);
-    GameModelView(context).buttonPress(idFile);
+    ChatModelView().buttonPress(idFile, context);
   }
 
 

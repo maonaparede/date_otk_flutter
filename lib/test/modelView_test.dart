@@ -2,7 +2,7 @@ import 'package:date_otk_flutter/models/button_options.dart';
 import 'package:date_otk_flutter/models/chat_model.dart';
 import 'package:date_otk_flutter/models/name_dialog.dart';
 import 'package:date_otk_flutter/models/id_file.dart';
-import 'package:date_otk_flutter/pages/standart_chat/game_modelview.dart';
+import 'package:date_otk_flutter/pages/standart_chat/chat_modelview.dart';
 
 class ModelViewTest{
 
@@ -25,13 +25,13 @@ class ModelViewTest{
   Future start() async {
 
      // await Future.delayed(Duration(seconds: 3));
-      GameModelView(context).updateModel(chatModel);
+          //ChatModelView().updateModel(chatModel);
     //await Future.delayed(Duration(seconds: 2));
     //await GameController.instance.setOptions(null);
   }
 
   returnGameModelView(){
-    return GameModelView(context);
+    return ChatModelView();
   }
 
 }

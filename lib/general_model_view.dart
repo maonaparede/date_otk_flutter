@@ -1,18 +1,18 @@
 
 
+import 'package:date_otk_flutter/main.dart';
 import 'package:date_otk_flutter/models/id_file.dart';
 import 'package:date_otk_flutter/models/list_button_options.dart';
-import 'package:date_otk_flutter/service/database/db_internal_interface.dart';
-import 'package:date_otk_flutter/service/database/sql_lite.dart';
 import 'package:date_otk_flutter/service/get_scene.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 
 class GeneralModelView{
 
-  DbInternal db = new SQLite();
 
 
-  nextAction(IdFile idFile , dynamic modelView, dynamic model) async {
+  nextAction(IdFile idFile , BuildContext context, dynamic modelView, dynamic model) async {
     dynamic scene = await GetScene().getSceneById(idFile);
 
     if (scene != null){
@@ -22,7 +22,7 @@ class GeneralModelView{
           await updateScene(scene, modelView);
           return;
         }else{
-          await newScene(scene, modelView, idFile);
+          await newScene(scene, context ,modelView, idFile);
           return;
         }
       }else{
@@ -35,14 +35,17 @@ class GeneralModelView{
   }
 
 
-  newScene(dynamic scene, dynamic modelView, IdFile idFile) async{
+  newScene(dynamic scene, BuildContext context, dynamic modelView, IdFile idFile) async{
     String idScene = idFile.id.substring(0,2);
 
     //o id leva a outra tela
     if(idScene != null) {
       switch (idScene) {
         case "ch":
-          //await Navigator.of(modelView.context).pushReplacementNamed("GamePage");
+          await Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ChatPage()),
+          );
           break;
         default:
           return;

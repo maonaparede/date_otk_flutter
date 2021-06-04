@@ -13,7 +13,7 @@ class JsonReader{
 
     MapEntry<String, dynamic> response = null;
 
-    //search by id, element is a "(hash)map"
+    //search by id, "element" is a "(hash)map"
     data.forEach((element) {
       if(idFile.id == element['id']){
         response = element.entries.elementAt(1);

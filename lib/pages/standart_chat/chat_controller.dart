@@ -3,10 +3,10 @@ import 'package:date_otk_flutter/models/name_dialog.dart';
 
 import 'package:flutter/foundation.dart';
 
-  class GameController{
-    static final GameController instance = GameController._();
+  class ChatController{
+    static final ChatController instance = ChatController._();
     //construtor privado
-    GameController._();
+    ChatController._();
 
 
 

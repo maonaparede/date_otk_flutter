@@ -1,7 +1,7 @@
 
 
 import 'package:date_otk_flutter/pages/landing.dart';
-import 'package:date_otk_flutter/pages/standart_chat/game.dart';
+import 'package:date_otk_flutter/pages/standart_chat/chat.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,11 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
 
       //Rotas para as paginas.
-      initialRoute: '/game',
+      initialRoute: '/',
 
       routes: {
         '/': (context) => MyHomePage(),
-        '/game': (context) => GamePage()
+        '/chat': (context) => ChatPage()
       },
 
       title: 'Flutter Demo',
@@ -37,8 +37,8 @@ class MyHomePage extends StatefulWidget {
   Landing createState() => Landing();
 }
 
-class GamePage extends StatefulWidget {
+class ChatPage extends StatefulWidget {
   @override
-  Game createState() => Game();
+  Chat createState() => Chat();
 }
 

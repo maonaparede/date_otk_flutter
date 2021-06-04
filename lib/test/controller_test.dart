@@ -3,7 +3,7 @@ import 'package:date_otk_flutter/models/chat_model.dart';
 import 'package:date_otk_flutter/models/name_dialog.dart';
 import 'package:date_otk_flutter/models/id_file.dart';
 import 'package:date_otk_flutter/models/list_button_options.dart';
-import 'package:date_otk_flutter/pages/standart_chat/game_controller.dart';
+import 'package:date_otk_flutter/pages/standart_chat/chat_controller.dart';
 
 
 
@@ -34,9 +34,9 @@ class ControllerGameTest {
    // await Future.delayed(Duration(seconds: 2));
    // await GameController.instance.setCharacter("assets/images/wlop.jpg");
     //await Future.delayed(Duration(seconds: 1));
-    await GameController.instance.setDialogName(NameDialog("... rgrgrggr", text));
+    await ChatController.instance.setDialogName(NameDialog("... rgrgrggr", text));
     //await Future.delayed(Duration(seconds: 1));
-    await GameController.instance.setButtons(options);
+    await ChatController.instance.setButtons(options);
     //await Future.delayed(Duration(seconds: 2));
     //await GameController.instance.setOptions(null);
   }
