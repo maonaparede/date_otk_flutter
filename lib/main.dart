@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
 
       //Rotas para as paginas.
-      initialRoute: '/',
+      initialRoute: '/chat',
 
       routes: {
         '/': (context) => MyHomePage(),

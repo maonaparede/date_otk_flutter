@@ -15,7 +15,7 @@ abstract class PagesInterface{
   updateModel(dynamic model);
 
   buttonPress(IdFile idFile , BuildContext context) async{
-    await GeneralModelView().nextAction(idFile , context ,modelView, model);
+    await GeneralModelView().nextAction(idFile, context ,modelView, model);
     await removeButtons();
     return;
   }
