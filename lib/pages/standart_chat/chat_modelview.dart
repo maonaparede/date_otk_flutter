@@ -14,15 +14,16 @@ class ChatModelView extends PagesInterface{
     var controller = ChatController.instance;
 
     @override
-    var model = ChatModelView;
+    var modelView = ChatModelView;
 
+    String prefix = "assets/images/";
 
-    _updateChatModel(chatModel) async{
+  _updateChatModel(chatModel) async{
       if(chatModel.background != null){
-        ChatController.instance.setBackground(chatModel.background);
+        controller.setBackground(prefix+chatModel.background);
       }
       if(chatModel.character != null){
-        ChatController.instance.setCharacter(chatModel.character);
+        controller.setCharacter(prefix+chatModel.character);
       }
       if(chatModel.dialogName != null){
         controller.setDialogName(chatModel.dialogName);

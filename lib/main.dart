@@ -1,7 +1,9 @@
 
 
+import 'package:date_otk_flutter/models/id_file.dart';
 import 'package:date_otk_flutter/pages/landing.dart';
 import 'package:date_otk_flutter/pages/standart_chat/chat.dart';
+import 'package:date_otk_flutter/service/id_file_handler_shared_preferences.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -37,8 +39,11 @@ class MyHomePage extends StatefulWidget {
   Landing createState() => Landing();
 }
 
+
 class ChatPage extends StatefulWidget {
+
   @override
-  Chat createState() => Chat();
+  createState() => Chat();
 }
+
 

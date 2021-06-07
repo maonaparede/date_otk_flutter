@@ -12,7 +12,7 @@ import 'package:flutter/foundation.dart';
 
     final dialogName = ValueNotifier<NameDialog>(NameDialog("..." , "..."));
     final background = ValueNotifier<String>("assets/images/wlop.jpg");
-    final character = ValueNotifier<String>("assets/images/pp-removebg-preview.png");
+    final character = ValueNotifier<String>("assets/images/saber.png");
     final buttons = ValueNotifier<List<ButtonOptions>>(null);
 
 

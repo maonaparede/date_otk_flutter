@@ -30,7 +30,7 @@ class ControllerGameTest {
 
   Future start() async {
    // await Future.delayed(Duration(seconds: 3));
-   // await GameController.instance.setBackground("assets/images/pp-removebg-preview.png");
+   // await GameController.instance.setBackground("assets/images/saber.png");
    // await Future.delayed(Duration(seconds: 2));
    // await GameController.instance.setCharacter("assets/images/wlop.jpg");
     //await Future.delayed(Duration(seconds: 1));
@@ -43,7 +43,7 @@ class ControllerGameTest {
 
   ChatModel returnModel(){
     return ChatModel(IdFile(file: "rota1" , id:"ch1"),
-        NameDialog("... rgrgrggr", text), "assets/images/pp-removebg-preview.png", "assets/images/wlop.jpg");
+        NameDialog("... rgrgrggr", text), "assets/images/saber.png", "assets/images/wlop.jpg");
   }
   
   ListButtonOptions returnButton(){

@@ -8,12 +8,12 @@ import 'package:date_otk_flutter/components/button_box.dart';
 import 'package:date_otk_flutter/models/button_options.dart';
 import 'package:date_otk_flutter/models/name_dialog.dart';
 import 'package:date_otk_flutter/models/id_file.dart';
-import 'package:date_otk_flutter/service/json_handler/json_reader.dart';
-import 'package:date_otk_flutter/test/general_controller_test.dart';
+import 'package:date_otk_flutter/service/id_file_handler_shared_preferences.dart';
+import 'package:date_otk_flutter/service/shared_preferences/shared_preferences_values.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 
@@ -33,18 +33,21 @@ class Chat extends State<ChatPage> {
   //arquivo - talvez aqls funcoes do javascript (.map .reduce) sejam úteis
   //todo tirar td de dependencia do android manifest e acharr um plugin flutter pra aplicar isso
 
+
   @override
   Widget build(BuildContext context) {
     //GeneralControllerTest(context).start();
-    loadTest();
     //ControllerGameTest().start();
     //ModelViewTest().start();
+    loadTest();
     return _buildGame();
   }
 
   loadTest() async{
-    //_buttonPress(IdFile(id:"ch1" , file: "rota1"));
-    //print(a);
+    await SharedPreferencesValues().delete("idScene");
+    await SharedPreferencesValues().delete("fileScene");
+    ChatModelView().initScene();
+    //print(idFile.id);
   }
 
   Widget _buildGame(){

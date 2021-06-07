@@ -1,5 +1,6 @@
 import 'package:date_otk_flutter/components/button_box.dart';
 import 'package:date_otk_flutter/models/button_options.dart';
+import 'package:date_otk_flutter/models/id_file.dart';
 import 'package:flutter/material.dart';
 
 import '../main.dart';
@@ -16,8 +17,8 @@ class Landing extends State<MyHomePage> {
             onPressed: (){
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ChatPage()),
-              );
+                MaterialPageRoute(builder: (context) => ChatPage(),
+              ));
             }, data: ButtonOptions(text: "salve", idFile: null),
           ),
           ),

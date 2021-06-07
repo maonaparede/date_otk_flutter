@@ -20,7 +20,7 @@ class ModelViewTest{
   ];
 
   ChatModel chatModel = new ChatModel(IdFile(file: "rota1" , id:"ch1") ,NameDialog("name", "dialog"),
-      "assets/images/pp-removebg-preview.png", "assets/images/wlop.jpg");
+      "assets/images/saber.png", "assets/images/wlop.jpg");
 
   Future start() async {
 

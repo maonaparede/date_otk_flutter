@@ -16,13 +16,13 @@ class GeneralControllerTest{
     ChatModel a =
     ChatModel(
         IdFile(file: "rota1" , id:"ch1"),
-        NameDialog("... rgrgrggr", "egeg"), "assets/images/pp-removebg-preview.png", "assets/images/wlop.jpg");
+        NameDialog("... rgrgrggr", "egeg"), "assets/images/saber.png", "assets/images/wlop.jpg");
 
     GeneralControllerTest(this.context);
     
      Future start() async {
       await Future.delayed(Duration(seconds: 3));
-      // await GameController.instance.setBackground("assets/images/pp-removebg-preview.png");
+      // await GameController.instance.setBackground("assets/images/saber.png");
       //await GeneralModelView().nextAction(IdFile(file: "rota1" , id:"ch1")
       //    , ModelViewTest(context).returnGameModelView(), a);
     }

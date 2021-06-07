@@ -32,13 +32,18 @@ class SharedPreferencesValues{
   Future<dynamic> read(String key) async{
     var prefs = await SharedPreferences.getInstance();
     dynamic value = prefs.get(key);
-    return value != null? value : Future.error("The key: "+key+" has a null value");
+    return value;
   }
 
   Future<bool> delete(String key) async{
     var prefs = await SharedPreferences.getInstance();
     
     return await prefs.remove(key);
+  }
+
+  _returnNull(String key){
+    Future.error("The key: "+key+" has a null value");
+    return null;
   }
 
 }
