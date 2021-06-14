@@ -11,20 +11,21 @@ class CreateModels{
   Future<ChatModel> chatModel(Map<String, dynamic> data) async {
     return ChatModel(
         IdFile(id: data['id'],file: data['file']),
-        NameDialog(data['name'], data['said']),
+        NameDialog(data['name'], data['said'] , true),
         data['background'],
         data['character']
     );
   }
 
   Future<ListButtonOptions> buttonModel( List<dynamic> data) async {
-    List<ButtonOptions> list;
+    List<ButtonOptions> list = [];
 
     data.forEach((element) {
-      list.add(
-          ButtonOptions(
-              idFile: IdFile(id: element['id'], file: element['file']),
-              text: element['text']));
+      ButtonOptions buttonOptions = ButtonOptions(
+          idFile: IdFile(id: element['id'], file: element['file']),
+          text: element['text']);
+
+     list.add(buttonOptions);
     });
 
     return ListButtonOptions(list);

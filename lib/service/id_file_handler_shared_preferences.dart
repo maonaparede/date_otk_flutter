@@ -1,9 +1,7 @@
 
 
 
-
 import 'package:date_otk_flutter/models/id_file.dart';
-
 import 'shared_preferences/shared_preferences_values.dart';
 
 class IdFileSharedPreferencesHandler{
@@ -11,7 +9,7 @@ class IdFileSharedPreferencesHandler{
 
   setIdFile(String id, String file) async {
     await SharedPreferencesValues().create("idScene", id);
-    await SharedPreferencesValues().create("idFile", file);
+    await SharedPreferencesValues().create("fileScene", file);
     return;
   }
 
@@ -20,13 +18,13 @@ class IdFileSharedPreferencesHandler{
     IdFile idFile = await _getIdFileFromSharedPreferences();
 
     if(idFile.id == null || idFile.file == null){
-      print("The values from id and/or file are null.");
+      print("class: IdFileSharedPreferencesHandler. The values from id and/or file are null.");
       print("Null values. Restoring values from id and file to default...");
       await _setDefaultIdFile();
       IdFile file = await _getIdFileFromSharedPreferences();
       return file;
     }else{
-     print("Returning idFile from Shared Preferences");
+     print("class: IdFileSharedPreferencesHandler. Returning idFile from Shared Preferences");
      return idFile;
      }
 

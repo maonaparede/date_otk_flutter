@@ -1,8 +1,6 @@
 
 
 
-import 'package:date_otk_flutter/models/button_options.dart';
-import 'package:date_otk_flutter/models/chat_model.dart';
 import 'package:date_otk_flutter/models/list_button_options.dart';
 import 'package:date_otk_flutter/pages/pages_interface.dart';
 import 'package:date_otk_flutter/pages/standart_chat/chat_controller.dart';
@@ -18,7 +16,11 @@ class ChatModelView extends PagesInterface{
 
     String prefix = "assets/images/";
 
-  _updateChatModel(chatModel) async{
+    _updateChatModel(chatModel) async{
+
+      if(chatModel.idFile != null){
+        controller.setIdFile(chatModel.idFile);
+      }
       if(chatModel.background != null){
         controller.setBackground(prefix+chatModel.background);
       }
@@ -32,16 +34,23 @@ class ChatModelView extends PagesInterface{
 
     @override
     updateModel(Object model1) async {
-      switch (model1) {
+      switch (model1.runtimeType) {
         case ListButtonOptions:
+          await controller.setDialogButtonVisible(false);
           await showButtons(model1);
           break;
         default:
+          removeButtons();
+          await controller.setDialogButtonVisible(true);
           await _updateChatModel(model1);
           break;
       }
     }
 
+    pressButtonNext(BuildContext context){
+      buttonPress(controller.idFile, context);
+      return;
+    }
 
 
 }

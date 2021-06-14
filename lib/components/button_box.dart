@@ -25,7 +25,7 @@ class ButtomBox extends StatelessWidget{
         Container(
             margin: EdgeInsets.all(10),
             height: 50.0,
-            child: RaisedButton(
+            child: MaterialButton(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(0.0),
                   side: BorderSide(color: borderColor)),

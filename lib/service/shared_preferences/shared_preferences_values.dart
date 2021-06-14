@@ -41,9 +41,4 @@ class SharedPreferencesValues{
     return await prefs.remove(key);
   }
 
-  _returnNull(String key){
-    Future.error("The key: "+key+" has a null value");
-    return null;
-  }
-
 }

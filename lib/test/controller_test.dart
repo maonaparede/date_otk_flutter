@@ -34,7 +34,7 @@ class ControllerGameTest {
    // await Future.delayed(Duration(seconds: 2));
    // await GameController.instance.setCharacter("assets/images/wlop.jpg");
     //await Future.delayed(Duration(seconds: 1));
-    await ChatController.instance.setDialogName(NameDialog("... rgrgrggr", text));
+    //await ChatController.instance.setDialogName(NameDialog("... rgrgrggr", text, true));
     //await Future.delayed(Duration(seconds: 1));
     await ChatController.instance.setButtons(options);
     //await Future.delayed(Duration(seconds: 2));
@@ -43,7 +43,7 @@ class ControllerGameTest {
 
   ChatModel returnModel(){
     return ChatModel(IdFile(file: "rota1" , id:"ch1"),
-        NameDialog("... rgrgrggr", text), "assets/images/saber.png", "assets/images/wlop.jpg");
+        NameDialog("... rgrgrggr", text, true), "assets/images/saber.png", "assets/images/wlop.jpg");
   }
   
   ListButtonOptions returnButton(){

@@ -13,10 +13,10 @@ class GetScene{
     return scene;
   }
 
-  _returnModel(MapEntry<String, dynamic> response) async{
+    _returnModel(MapEntry<String, dynamic> response) async{
     CreateModels createModels = CreateModels();
 
-    dynamic model = null;
+    dynamic model;
 
     switch(response.key){
       case "chat":

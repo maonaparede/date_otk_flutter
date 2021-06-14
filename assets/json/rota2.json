@@ -11,7 +11,7 @@
         },
         {
           "text": "(Ignorar)",
-          "id": "3",
+          "id": "ch2",
           "file": "rota2"
         }
       ]
@@ -21,10 +21,10 @@
       "id": "ch2",
       "chat": [
         {
-          "id": "ch1",
+          "id": "ch3",
           "file": "rota2",
           "character": "saber.png",
-          "background": "background2.jpg",
+          "background": "wlop.jpg",
           "name": "Sabr ",
           "said" : "Oi"
         }
@@ -36,10 +36,10 @@
       "chat": [
         {
           "id": "ch1",
-          "file": "rota2",
+          "file": "rota1",
           "character": "saber.png",
-          "background": "background2.jpg",
-          "name": "Saber ",
+          "background": "wlop.jpg",
+          "name": "Saber e bom ",
           "said" : "Oi tudo bem?"
         }
       ]

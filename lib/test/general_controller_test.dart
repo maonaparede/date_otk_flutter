@@ -16,7 +16,7 @@ class GeneralControllerTest{
     ChatModel a =
     ChatModel(
         IdFile(file: "rota1" , id:"ch1"),
-        NameDialog("... rgrgrggr", "egeg"), "assets/images/saber.png", "assets/images/wlop.jpg");
+        NameDialog("... rgrgrggr", "egeg", true), "assets/images/saber.png", "assets/images/wlop.jpg");
 
     GeneralControllerTest(this.context);
     

@@ -1,4 +1,5 @@
 import 'package:date_otk_flutter/models/button_options.dart';
+import 'package:date_otk_flutter/models/id_file.dart';
 import 'package:date_otk_flutter/models/name_dialog.dart';
 
 import 'package:flutter/foundation.dart';
@@ -10,14 +11,24 @@ import 'package:flutter/foundation.dart';
 
 
 
-    final dialogName = ValueNotifier<NameDialog>(NameDialog("..." , "..."));
+    final dialogName = ValueNotifier<NameDialog>(NameDialog("..." , "...", true));
     final background = ValueNotifier<String>("assets/images/wlop.jpg");
     final character = ValueNotifier<String>("assets/images/saber.png");
     final buttons = ValueNotifier<List<ButtonOptions>>(null);
+    IdFile idFile = IdFile( id: null, file: null);
 
+    setIdFile(IdFile idFile){
+      this.idFile = idFile;
+    }
 
     setDialogName(NameDialog value){
       dialogName.value = value;
+    }
+
+    setDialogButtonVisible(bool value){
+      dialogName.value.buttonVisible = value;
+      // ignore: invalid_use_of_visible_for_testing_member
+      dialogName.notifyListeners();
     }
 
     setBackground(String value){
@@ -28,8 +39,9 @@ import 'package:flutter/foundation.dart';
       character.value = value;
     }
 
-    setButtons(List<ButtonOptions> value){
+    setButtons(List<ButtonOptions> value) async{
       buttons.value = value;
+      return;
     }
 
  }

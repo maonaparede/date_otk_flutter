@@ -3,8 +3,9 @@ import 'dart:ui' as ui;
 
 
 
-import 'package:date_otk_flutter/Components/text_box.dart';
+
 import 'package:date_otk_flutter/components/button_box.dart';
+import 'package:date_otk_flutter/components/text_box.dart';
 import 'package:date_otk_flutter/models/button_options.dart';
 import 'package:date_otk_flutter/models/name_dialog.dart';
 import 'package:date_otk_flutter/models/id_file.dart';
@@ -27,7 +28,6 @@ class Chat extends State<ChatPage> {
 
   //todo Fade nos widgets aparecendo e desaparecendo, provavel uso de states
   //todo botao descer texto
-  //todo BD interno -
   //Ideia - guardar id como chave primaria, msm repetindo nome de arquivo
   //só q dai vai ter q fazer um "interpretador" Json q pegue só o trrecho do id no
   //arquivo - talvez aqls funcoes do javascript (.map .reduce) sejam úteis
@@ -39,14 +39,23 @@ class Chat extends State<ChatPage> {
     //GeneralControllerTest(context).start();
     //ControllerGameTest().start();
     //ModelViewTest().start();
-    loadTest();
+    //loadTest();
     return _buildGame();
   }
 
+  @override
+  void initState(){
+    loadTest();
+    super.initState();
+  }
+
   loadTest() async{
-    await SharedPreferencesValues().delete("idScene");
+    String a = await SharedPreferencesValues().read("idScene");
+    print(a + " resultado fetaf");
     await SharedPreferencesValues().delete("fileScene");
+    await SharedPreferencesValues().delete("idScene");
     ChatModelView().initScene();
+    //await ControllerGameTest().start();
     //print(idFile.id);
   }
 
@@ -106,7 +115,7 @@ class Chat extends State<ChatPage> {
               valueListenable: ChatController.instance.dialogName,
               builder: (context , value, _)
               {
-                return TextBoxName(data: value);
+                return TextBoxName(data: value, onPressed: () {_buttonNextPress();},);
               },
             ),
           ),
@@ -117,11 +126,15 @@ class Chat extends State<ChatPage> {
   }
 
   _buildButton(ButtonOptions button){
-    return ButtomBox(data: button, onPressed: () {_buttonPress(button.idFile);});
+    return ButtomBox(data: button, onPressed: () {_buttonListPress(button.idFile);});
   }
 
-  _buttonPress(IdFile idFile){
-    log("id: " + idFile.id);
+  _buttonNextPress(){
+    ChatModelView().pressButtonNext(context);
+  }
+
+  _buttonListPress(IdFile idFile){
+    log("id: " + idFile.id + " file: " + idFile.file);
     ChatModelView().buttonPress(idFile, context);
   }
 

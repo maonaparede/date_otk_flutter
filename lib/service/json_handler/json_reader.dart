@@ -11,7 +11,7 @@ class JsonReader{
     Map<String, dynamic> model = await _readJsonFile(idFile.file);
     List<dynamic> data = await model['model'];
 
-    MapEntry<String, dynamic> response = null;
+    MapEntry<String, dynamic> response;
 
     //search by id, "element" is a "(hash)map"
     data.forEach((element) {

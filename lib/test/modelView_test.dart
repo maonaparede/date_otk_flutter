@@ -19,7 +19,7 @@ class ModelViewTest{
     ButtonOptions(idFile: IdFile(file: "rota1" , id:"ch1"),text: "Braba")
   ];
 
-  ChatModel chatModel = new ChatModel(IdFile(file: "rota1" , id:"ch1") ,NameDialog("name", "dialog"),
+  ChatModel chatModel = new ChatModel(IdFile(file: "rota1" , id:"ch1") ,NameDialog("name", "dialog", true),
       "assets/images/saber.png", "assets/images/wlop.jpg");
 
   Future start() async {

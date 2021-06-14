@@ -12,18 +12,26 @@ import 'package:flutter/widgets.dart';
 
 class GeneralModelView{
 
+  final List<Object> multiSceneObject = [
+    ListButtonOptions
+  ];
 
 
+  //todo lógica do next Scene para salvar o id e file currrent e
+  // todo tb pra mudar de cena
+  
   nextAction(IdFile idFile , BuildContext context, dynamic modelView) async {
     dynamic scene = await GetScene().getSceneById(idFile);
 
     if (scene != null){
-      //Se precisar add outra coisa "multi-cena" é só colocar aqui embaixo
-      if (scene.runtimeType != ListButtonOptions) {
-          await newScene(scene, context ,modelView);
-          await saveProgress(idFile);
+      if (multiSceneObject.contains(scene.runtimeType)) {
+          print("entrou");
+          await updateScene(scene, modelView);
           return;
       }else{
+        print("saiu");
+        //await saveProgress(scene.idFile);
+        //await newScene(scene, context ,modelView);
         await updateScene(scene, modelView);
         return;
       }
@@ -63,11 +71,10 @@ class GeneralModelView{
             case ChatModelView:
               await ChatModelView().updateModel(scene);
               break;
-
           }
-
-          return;
+    return;
   }
+
 
 
 
