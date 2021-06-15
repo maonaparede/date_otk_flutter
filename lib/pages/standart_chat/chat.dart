@@ -52,8 +52,9 @@ class Chat extends State<ChatPage> {
   loadTest() async{
     String a = await SharedPreferencesValues().read("idScene");
     print(a + " resultado fetaf");
-    await SharedPreferencesValues().delete("fileScene");
-    await SharedPreferencesValues().delete("idScene");
+    //await SharedPreferencesValues().delete("fileScene");
+    //await SharedPreferencesValues().delete("idScene");
+    //await SharedPreferencesValues().delete("oldModelView");
     ChatModelView().initScene();
     //await ControllerGameTest().start();
     //print(idFile.id);

@@ -19,7 +19,7 @@ abstract class PagesInterface{
   initScene() async{
     IdFile idFile = await IdFileSharedPreferencesHandler().getIdFile();
     dynamic scene = await GetScene().getSceneById(idFile);
-    await GeneralModelView().updateScene(scene, modelView);
+    await GeneralModelView().initScene(scene, modelView);
     return;
   }
 
