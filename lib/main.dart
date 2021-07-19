@@ -3,11 +3,14 @@
 import 'package:date_otk_flutter/models/id_file.dart';
 import 'package:date_otk_flutter/pages/landing.dart';
 import 'package:date_otk_flutter/pages/standart_chat/chat.dart';
-import 'package:date_otk_flutter/service/id_file_handler_shared_preferences.dart';
+import 'package:date_otk_flutter/service/shared_preferences_handler.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+
+import 'app_modular.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ModularApp(module: AppModule(), child:MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -29,7 +32,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-    );
+    ).modular();
   }
 }
 

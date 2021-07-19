@@ -5,9 +5,6 @@ import 'package:date_otk_flutter/models/name_dialog.dart';
 import 'package:flutter/foundation.dart';
 
   class ChatController{
-    static final ChatController instance = ChatController._();
-    //construtor privado
-    ChatController._();
 
 
 
@@ -15,7 +12,12 @@ import 'package:flutter/foundation.dart';
     final background = ValueNotifier<String>("assets/images/wlop.jpg");
     final character = ValueNotifier<String>("assets/images/saber.png");
     final buttons = ValueNotifier<List<ButtonOptions>>(null);
+    bool characterVisible = false;
     IdFile idFile = IdFile( id: null, file: null);
+
+    setCharacterVisible(bool value){
+      this.characterVisible = value;
+    }
 
     setIdFile(IdFile idFile){
       this.idFile = idFile;

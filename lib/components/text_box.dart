@@ -13,19 +13,19 @@ class TextBoxName extends StatelessWidget {
 
   ScrollController _scrollControler;
 
-  NameDialog data;
+  final NameDialog data;
 
   final VoidCallback onPressed;
 
-  Color borderColor = Colors.black54;
+  final Color borderColor = Colors.black54;
 
-  Color nameColorBc = Colors.blueAccent;
+  final Color nameColorBc = Colors.blueAccent;
 
-  Color textColor = Colors.white;
+  final Color textColor = Colors.white;
 
-  Color textColorBorder = Color(5460819);
+  final Color textColorBorder = Color(5460819);
 
-  Color speakBg = Colors.black54;
+  final Color speakBg = Colors.black54;
 
   @override
   Widget build(BuildContext context) {
@@ -120,15 +120,14 @@ class TextBoxName extends StatelessWidget {
     _scrollControler =  ScrollController();
     return new Container(
         child: Padding(
-              padding: EdgeInsets.fromLTRB(3.0, 3.0, 3.0, 10),
+              padding: EdgeInsets.fromLTRB(3.0, 3.0, 3.0, 1.0),
               child:
               SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child:
-                Row(children: <Widget>[ Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Container(
+                Row(
+                  children: <Widget>[
+                        Flexible(
                         child: new BorderedText(
                           strokeWidth: 2.0,
                           strokeColor: textColorBorder,
@@ -144,7 +143,7 @@ class TextBoxName extends StatelessWidget {
                         ),
                       )
                     ],
-                ),],),
+                ),
               ),
           ));
   }

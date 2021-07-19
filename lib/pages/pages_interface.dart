@@ -6,7 +6,7 @@ import 'package:date_otk_flutter/models/button_options.dart';
 import 'package:date_otk_flutter/models/id_file.dart';
 import 'package:date_otk_flutter/models/list_button_options.dart';
 import 'package:date_otk_flutter/service/get_scene.dart';
-import 'package:date_otk_flutter/service/id_file_handler_shared_preferences.dart';
+import 'package:date_otk_flutter/service/shared_preferences_handler.dart';
 import 'package:flutter/widgets.dart';
 
 abstract class PagesInterface{
@@ -17,7 +17,7 @@ abstract class PagesInterface{
   updateModel(dynamic model);
 
   initScene() async{
-    IdFile idFile = await IdFileSharedPreferencesHandler().getIdFile();
+    IdFile idFile = await SharedPreferencesHandler().getIdFile();
     dynamic scene = await GetScene().getSceneById(idFile);
     await GeneralModelView().initScene(scene, modelView);
     return;

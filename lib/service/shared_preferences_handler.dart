@@ -4,7 +4,7 @@
 import 'package:date_otk_flutter/models/id_file.dart';
 import 'shared_preferences/shared_preferences_values.dart';
 
-class IdFileSharedPreferencesHandler{
+class SharedPreferencesHandler{
 
 
   setIdFile(String id, String file) async {
@@ -42,5 +42,14 @@ class IdFileSharedPreferencesHandler{
     return IdFile(id: id,file: file);
   }
 
+  setOldModelView(String oldModelView) async{
+    await SharedPreferencesValues().create("oldModelView" , oldModelView);
+    return;
+  }
+
+  Future<String> readOldModelView() async{
+    String modelViewOld = await SharedPreferencesValues().read("oldModelView");
+    return modelViewOld;
+  }
 
 }

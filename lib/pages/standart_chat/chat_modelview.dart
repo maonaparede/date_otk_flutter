@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 class ChatModelView extends PagesInterface{
 
     @override
-    var controller = ChatController.instance;
+    var controller = ChatController();
 
     @override
     var modelView = ChatModelView;
@@ -25,7 +25,9 @@ class ChatModelView extends PagesInterface{
         controller.setBackground(prefix+chatModel.background);
       }
       if(chatModel.character != null){
-        controller.setCharacter(prefix+chatModel.character);
+        controller.setCharacterVisible(false);
+        await controller.setCharacter(prefix+chatModel.character);
+        await controller.setCharacterVisible(true);
       }
       if(chatModel.dialogName != null){
         controller.setDialogName(chatModel.dialogName);

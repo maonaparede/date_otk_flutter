@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 class CharacterList extends StatelessWidget {
   CharacterList({@required this.image});
 
-  String image;
+  final String image;
 
   @override
   Widget build(BuildContext context) {

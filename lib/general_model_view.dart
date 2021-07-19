@@ -5,7 +5,7 @@ import 'package:date_otk_flutter/models/id_file.dart';
 import 'package:date_otk_flutter/models/list_button_options.dart';
 import 'package:date_otk_flutter/pages/standart_chat/chat_modelview.dart';
 import 'package:date_otk_flutter/service/get_scene.dart';
-import 'package:date_otk_flutter/service/id_file_handler_shared_preferences.dart';
+import 'package:date_otk_flutter/service/shared_preferences_handler.dart';
 import 'package:date_otk_flutter/service/shared_preferences/shared_preferences_values.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -13,7 +13,7 @@ import 'package:flutter/widgets.dart';
 
 class GeneralModelView{
 
-  final List<Object> multiSceneObject = [
+  final List<Object> _multiSceneObject = [
     ListButtonOptions
   ];
 
@@ -22,13 +22,11 @@ class GeneralModelView{
     dynamic scene = await GetScene().getSceneById(idFile);
 
     if (scene != null){
-      if (multiSceneObject.contains(scene.runtimeType)) {
-          print("entrou");
+      if (_multiSceneObject.contains(scene.runtimeType)) {
           await _updateScene(scene, modelView);
           return;
       }else{
-        print("saiu");
-        await handleScene(idFile ,scene, context ,modelView);
+        await _handleScene(idFile ,scene, context ,modelView);
         return;
       }
     }
@@ -36,8 +34,8 @@ class GeneralModelView{
     return;
   }
 
-  handleScene(IdFile idFile,dynamic scene, BuildContext context, dynamic modelViewNew) async{
-    String modelViewOld = await SharedPreferencesValues().read("oldModelView");
+  _handleScene(IdFile idFile,dynamic scene, BuildContext context, dynamic modelViewNew) async{
+    String modelViewOld = await SharedPreferencesHandler().readOldModelView();
 
     if (modelViewOld != null) {
       await _saveProgress(idFile, modelViewNew.toString());
@@ -45,18 +43,18 @@ class GeneralModelView{
         if(modelViewNew.toString() == modelViewOld){
           await _updateScene(scene, modelViewNew);
         }else{
-          await newScreen(scene, context, modelViewNew);
+          await _newScreen(scene, context, modelViewNew);
         }
     }
   }
 
   _saveProgress(IdFile scene, String modelView) async{
-    await SharedPreferencesValues().create("oldModelView" , modelView);
-    await IdFileSharedPreferencesHandler().setIdFile(scene.id, scene.file);
+    await SharedPreferencesHandler().setOldModelView(modelView);
+    await SharedPreferencesHandler().setIdFile(scene.id, scene.file);
     return;
   }
 
-  newScreen(dynamic scene, BuildContext context, dynamic modelView) async{
+  _newScreen(dynamic scene, BuildContext context, dynamic modelView) async{
     String idScene = scene.idFile.id.substring(0,2);
 
     if(idScene != null) {
