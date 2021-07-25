@@ -6,7 +6,9 @@ import 'package:flutter/foundation.dart';
 
   class ChatController{
 
-
+    static final ChatController instance = ChatController._();
+    //construtor privado
+    ChatController._();
 
     final dialogName = ValueNotifier<NameDialog>(NameDialog("..." , "...", true));
     final background = ValueNotifier<String>("assets/images/wlop.jpg");

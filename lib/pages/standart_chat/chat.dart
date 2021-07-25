@@ -30,7 +30,8 @@ class Chat extends State<ChatPage> {
   //todo Fade nos widgets aparecendo e desaparecendo, provavel uso de states
   //todo botao descer texto
 
-  //todo tirar td de dependencia do android manifest e achar um plugin flutter pra aplicar isso
+
+  var controller = ChatController.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +65,7 @@ class Chat extends State<ChatPage> {
 
           //Background
           ValueListenableBuilder<String>(
-            valueListenable: ChatController().background,
+            valueListenable: controller.background,
             builder: (context , value, _)
             {
              return Image(image: AssetImage(value), fit: BoxFit.cover);
@@ -80,11 +81,11 @@ class Chat extends State<ChatPage> {
                 height: MediaQuery.of(context).size.height * 0.7,
                 child:
                  ValueListenableBuilder<String>(
-                    valueListenable: ChatController().character,
+                    valueListenable: controller.character,
                     builder: (context , value, _)
                     {
                       return AnimatedOpacity(
-                          opacity: ChatController().characterVisible ? 1.0 : 0.0,
+                          opacity: controller.characterVisible ? 1.0 : 0.0,
                           duration: Duration(milliseconds: 1000),
 
                        child: Image(image: AssetImage(value), fit: BoxFit.fill)
@@ -99,7 +100,7 @@ class Chat extends State<ChatPage> {
             alignment: Alignment.center,
             child:
               ValueListenableBuilder<List<ButtonOptions>>(
-              valueListenable: ChatController().buttons,
+              valueListenable: controller.buttons,
                   builder: ( context , value, _ )
               {
                 return ListView.builder(
@@ -113,7 +114,7 @@ class Chat extends State<ChatPage> {
           Align(
             alignment: Alignment.bottomCenter,
             child: ValueListenableBuilder<NameDialog>(
-              valueListenable: ChatController().dialogName,
+              valueListenable: controller.dialogName,
               builder: (context , value, _)
               {
                 return TextBoxName(data: value, onPressed: () {_buttonNextPress();},);

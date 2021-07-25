@@ -36,7 +36,7 @@ class ControllerGameTest {
     //await Future.delayed(Duration(seconds: 1));
     //await ChatController.instance.setDialogName(NameDialog("... rgrgrggr", text, true));
     //await Future.delayed(Duration(seconds: 1));
-    await ChatController().setButtons(options);
+    //await ChatController..setButtons(options);
     //await Future.delayed(Duration(seconds: 2));
     //await GameController.instance.setOptions(null);
   }

@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 class ChatModelView extends PagesInterface{
 
     @override
-    var controller = ChatController();
+    var controller = ChatController.instance;
 
     @override
     var modelView = ChatModelView;
